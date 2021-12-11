@@ -1,0 +1,30 @@
+type User @key ( fields: "id" ) {
+
+  id: String!
+  username: String!
+}
+
+input CreateUserInput {
+
+  id: String!
+  username: String!
+}
+
+input UpdateUserInput {
+
+  id: String!
+  username: String!
+}
+
+type Query {
+
+  users: [User]!
+  user ( id: String! ): User
+}
+
+type Mutation {
+
+  createUser ( createUserInput: CreateUserInput! ): User!
+  updateUser ( updateUserInput: UpdateUserInput! ): User!
+  removeUser ( id: String! ): User
+}
